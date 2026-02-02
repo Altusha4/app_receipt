@@ -7,6 +7,10 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 
-db.users = require("./user.model.js");
+db.user = require("./user.model.js")(mongoose);
+db.role = require("./role.model.js")(mongoose);
+db.recipe = require("./recipe.model.js")(mongoose);
+
+db.ROLES = ["user", "admin", "moderator"];
 
 module.exports = db;
